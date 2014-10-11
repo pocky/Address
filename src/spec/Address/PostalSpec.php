@@ -6,7 +6,7 @@ use Address\Country;
 use Address\Street;
 use PhpSpec\ObjectBehavior;
 
-class AddressSpec extends ObjectBehavior
+class PostalSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
@@ -15,7 +15,7 @@ class AddressSpec extends ObjectBehavior
 
     public function let()
     {
-        $street = new Street(1600, "Amphitheatre Pkwy");
+        $street  = new Street(1600, "Amphitheatre Pkwy");
         $country = new Country("United States", "US");
 
         $this->beConstructedWith(
@@ -31,6 +31,16 @@ class AddressSpec extends ObjectBehavior
     public function it_should_have_a_street()
     {
         $this->getStreet()->shouldReturn("1600 Amphitheatre Pkwy");
+    }
+
+    public function it_should_have_a_street_number()
+    {
+        $this->getStreetNumber()->shouldReturn(1600);
+    }
+
+    public function it_should_have_a_street_name()
+    {
+        $this->getStreetName()->shouldReturn("Amphitheatre Pkwy");
     }
 
     public function it_should_have_a_postal_code()
@@ -50,16 +60,26 @@ class AddressSpec extends ObjectBehavior
 
     public function it_should_have_post_office_box_number()
     {
-        return $this->getPostOfficeBoxNumber()->shouldReturn(23);
+        $this->getPostOfficeBoxNumber()->shouldReturn(23);
     }
 
     public function it_should_have_a_country()
     {
-        return $this->getCountry()->shouldReturn("United States, US");
+        $this->getCountry()->shouldReturn("United States, US");
+    }
+
+    public function it_should_have_a_country_code()
+    {
+        $this->getCountryCode()->shouldReturn("US");
+    }
+
+    public function it_should_have_a_country_name()
+    {
+        $this->getCountryName()->shouldReturn("United States");
     }
 
     function it_should_have_a_value()
     {
-        return $this->getValue()->shouldBeArray();
+        $this->getValue()->shouldBeArray();
     }
 }

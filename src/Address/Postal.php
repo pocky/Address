@@ -82,6 +82,22 @@ class Postal
     }
 
     /**
+     * @return string
+     */
+    public function getStreetName()
+    {
+        return $this->street->getName();
+    }
+
+    /**
+     * @return int
+     */
+    public function getStreetNumber()
+    {
+        return $this->street->getNumber();
+    }
+
+    /**
      * @return int
      */
     public function getPostalCode()
@@ -119,6 +135,22 @@ class Postal
     public function getCountry()
     {
         return $this->country->getValue();
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->country->getCode();
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryName()
+    {
+        return $this->country->getName();
     }
 
     public function getValue()

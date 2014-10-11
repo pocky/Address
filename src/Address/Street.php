@@ -27,16 +27,16 @@ final class Street
     /**
      * @var string The street name
      */
-    protected $street;
+    protected $name;
 
     /**
      * @param $number
      * @param $street
      */
-    public function __construct($number, $street)
+    public function __construct($number, $name)
     {
         $this->number = (int) $number;
-        $this->street = (string) $street;
+        $this->name   = (string) $name;
     }
 
     /**
@@ -50,9 +50,9 @@ final class Street
     /**
      * @return string
      */
-    public function getStreet()
+    public function getName()
     {
-        return $this->street;
+        return $this->name;
     }
 
     /**
@@ -61,7 +61,7 @@ final class Street
      */
     public function getValue($separator = null)
     {
-        return sprintf("%s%s %s", $this->number, $separator, $this->street);
+        return sprintf("%s%s %s", $this->number, $separator, $this->name);
     }
 
     /**

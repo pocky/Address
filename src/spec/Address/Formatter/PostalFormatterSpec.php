@@ -34,7 +34,7 @@ class PostalFormatterSpec extends ObjectBehavior
 
     function it_should_format()
     {
-        $this->format('%S %P %C')->shouldReturn("1600 Amphitheatre Pkwy 94043 United States, US");
-        $this->format('%S %P %C')->shouldBeString();
+        $this->format('%u %n %P %a')->shouldReturn("1600 Amphitheatre Pkwy 94043 United States");
+        $this->format('%S %P %a')->shouldBeString();
     }
 }

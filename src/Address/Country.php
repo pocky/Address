@@ -35,8 +35,8 @@ final class Country
      */
     public function __construct($name, $code)
     {
-        $this->name      = (string) $name;
-        $this->code      = (string) $code;
+        $this->name = (string) $name;
+        $this->code = (string) $code;
     }
 
     /**

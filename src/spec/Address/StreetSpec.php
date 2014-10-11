@@ -23,10 +23,10 @@ class StreetSpec extends ObjectBehavior
         $this->getNumber()->shouldBeInt();
     }
 
-    public function it_should_have_a_street()
+    public function it_should_have_a_name()
     {
-        $this->getStreet()->shouldReturn("Amphitheatre Pkwy");
-        $this->getStreet()->shouldBeString();
+        $this->getName()->shouldReturn("Amphitheatre Pkwy");
+        $this->getName()->shouldBeString();
     }
 
     public function it_should_have_a_value()

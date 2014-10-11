@@ -22,7 +22,7 @@ class CountrySpec extends ObjectBehavior
         $this->getName()->shouldReturn("France");
     }
 
-    public function it_should_have_an_code()
+    public function it_should_have_a_code()
     {
         $this->getCode()->shouldReturn("FR");
     }
