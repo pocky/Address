@@ -31,8 +31,12 @@ class StreetSpec extends ObjectBehavior
 
     public function it_should_have_a_value()
     {
+        $this->getValue()->shouldBeString();
         $this->getValue()->shouldReturn("1600 Amphitheatre Pkwy");
         $this->getvalue(',')->shouldReturn("1600, Amphitheatre Pkwy");
+
+        $this->getValueAsArray()->shouldBeArray();
+        $this->getValueAsArray()->shouldReturn(["number" => 1600, "name" => "Amphitheatre Pkwy"]);
     }
 
     public function it_should_be_equal()

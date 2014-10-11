@@ -17,7 +17,7 @@ namespace Address;
  * @author Alexandre Balmes <alexandre@lablackroom.com>
  * @license http://opensource.org/licenses/mit-license.php MIT
  */
-class Postal
+final class Postal
 {
     /**
      * @var Street The complete street name
@@ -153,15 +153,22 @@ class Postal
         return $this->country->getName();
     }
 
+    /**
+     * @return array
+     */
     public function getValue()
     {
         return [
             'street' => $this->getStreet(),
+            'street_name' => $this->getStreetName(),
+            'street_number' => $this->getStreetNumber(),
             'postal_code' => $this->getPostalCode(),
             'locality' => $this->getLocality(),
             'region' => $this->getRegion(),
             'post_office_box_number' => $this->getPostOfficeBoxNumber(),
-            'country' => $this->getCountry()
+            'country' => $this->getCountry(),
+            'country_name' => $this->getCountryName(),
+            'country_code' => $this->getCountryCode(),
         ];
     }
 }

@@ -78,7 +78,7 @@ class PostalSpec extends ObjectBehavior
         $this->getCountryName()->shouldReturn("United States");
     }
 
-    function it_should_have_a_value()
+    public function it_should_have_a_value()
     {
         $this->getValue()->shouldBeArray();
     }

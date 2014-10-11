@@ -31,7 +31,7 @@ final class Street
 
     /**
      * @param $number
-     * @param $street
+     * @param $name
      */
     public function __construct($number, $name)
     {
@@ -62,6 +62,14 @@ final class Street
     public function getValue($separator = null)
     {
         return sprintf("%s%s %s", $this->number, $separator, $this->name);
+    }
+
+    public function getValueAsArray()
+    {
+        return [
+            "number" => $this->number,
+            "name" => $this->name
+        ];
     }
 
     /**

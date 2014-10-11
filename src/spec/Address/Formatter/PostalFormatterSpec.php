@@ -6,17 +6,16 @@ use Address\Country;
 use Address\Postal;
 use Address\Street;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class PostalFormatterSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Address\Formatter\PostalFormatter');
         $this->shouldImplement('Address\Formatter\FormatterInterface');
     }
 
-    function let()
+    public function let()
     {
         $street = new Street(1600, "Amphitheatre Pkwy");
         $country = new Country("United States", "US");
@@ -32,7 +31,7 @@ class PostalFormatterSpec extends ObjectBehavior
         $this->beConstructedWith($postal);
     }
 
-    function it_should_format()
+    public function it_should_format()
     {
         $this->format('%u %n %P %a')->shouldReturn("1600 Amphitheatre Pkwy 94043 United States");
         $this->format('%S %P %a')->shouldBeString();

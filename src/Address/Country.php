@@ -11,6 +11,8 @@
 
 namespace Address;
 
+use Address\Exception\CountryNotFoundException;
+
 /**
  * Class Country
  *
@@ -30,13 +32,68 @@ final class Country
     protected $code;
 
     /**
+     * @var
+     */
+    private static $countries;
+
+    /**
      * @param $name
      * @param $code
      */
     public function __construct($name, $code)
     {
+        if (!isset(static::$countries)) {
+            static::$countries = require __DIR__ . '/../Resources/countries.php';
+        }
+
+        if (!array_key_exists($code, static::$countries)) {
+            throw new CountryNotFoundException(sprintf("Code %s is not a valid code", $code));
+        }
+
+        if ($name !== static::$countries[$code]) {
+            throw new CountryNotFoundException(sprintf("Country %s does not exist or not match with %s code", $name, $code));
+        }
+
         $this->name = (string) $name;
         $this->code = (string) $code;
+    }
+
+    /**
+     * @param $code
+     * @return Country
+     */
+    public static function buildFromISOCode($code)
+    {
+        if (!isset(static::$countries)) {
+            static::$countries = require __DIR__ . '/../Resources/countries.php';
+        }
+
+        if (!array_key_exists($code, static::$countries)) {
+            throw new CountryNotFoundException(sprintf("Code %s is not a valid code", $code));
+        }
+
+        return new self(static::$countries[$code], $code);
+    }
+
+    /**
+     * @param $name
+     * @return Country
+     */
+    public static function buildFromName($name)
+    {
+        if (!isset(static::$countries)) {
+            static::$countries = require __DIR__ . '/../Resources/countries.php';
+        }
+
+        $countries = array_flip(static::$countries);
+
+        if (!array_key_exists($name, $countries)) {
+            throw new CountryNotFoundException(sprintf("Name %s is not a valid name", $name));
+        }
+
+        $code = $countries[$name];
+
+        return new self(static::$countries[$code], $code);
     }
 
     /**
@@ -61,6 +118,17 @@ final class Country
     public function getValue()
     {
         return sprintf("%s, %s", $this->name, $this->code);
+    }
+
+    /**
+     * @return array
+     */
+    public function getValueAsArray()
+    {
+        return [
+            "name" => $this->name,
+            "code" => $this->code,
+        ];
     }
 
     /**
