@@ -1,5 +1,5 @@
-Geo
-===
+Address
+=======
 
 PHP 5.4+ library to make working with Addresses safer, easier, and fun!
 

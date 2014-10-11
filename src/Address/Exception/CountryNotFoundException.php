@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the ${FILE_HEADER_PACKAGE} package.
+ * This file is part of the Address package.
  *
  * ${FILE_HEADER_COPYRIGHT}
  *

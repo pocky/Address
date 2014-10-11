@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Geo package.
+ * This file is part of the Address package.
  *
  * (c) Alexandre Balmes <alexandre@lablackroom.com>
  *
