@@ -11,7 +11,7 @@
 
 namespace Address;
 
-use Address\Exception\CountryNotFoundException;
+use Address\Exception\InvalidCountryException;
 
 /**
  * Class Country
@@ -47,11 +47,11 @@ final class Country
         }
 
         if (!array_key_exists($code, static::$countries)) {
-            throw new CountryNotFoundException(sprintf("Code %s is not a valid code", $code));
+            throw new InvalidCountryException(sprintf("Code %s is not a valid code", $code));
         }
 
         if ($name !== static::$countries[$code]) {
-            throw new CountryNotFoundException(sprintf("Country %s does not exist or not match with %s code", $name, $code));
+            throw new InvalidCountryException(sprintf("Country %s does not exist or not match with %s code", $name, $code));
         }
 
         $this->name = (string) $name;
@@ -69,7 +69,7 @@ final class Country
         }
 
         if (!array_key_exists($code, static::$countries)) {
-            throw new CountryNotFoundException(sprintf("Code %s is not a valid code", $code));
+            throw new InvalidCountryException(sprintf("Code %s is not a valid code", $code));
         }
 
         return new self(static::$countries[$code], $code);
@@ -88,7 +88,7 @@ final class Country
         $countries = array_flip(static::$countries);
 
         if (!array_key_exists($name, $countries)) {
-            throw new CountryNotFoundException(sprintf("Name %s is not a valid name", $name));
+            throw new InvalidCountryException(sprintf("Name %s is not a valid name", $name));
         }
 
         $code = $countries[$name];

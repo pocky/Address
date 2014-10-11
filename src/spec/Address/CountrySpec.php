@@ -55,11 +55,11 @@ class CountrySpec extends ObjectBehavior
     public function it_should_throw_an_exception()
     {
         $this
-            ->shouldThrow('Address\Exception\CountryNotFoundException')
+            ->shouldThrow('Address\Exception\InvalidCountryException')
             ->during('buildFromISOCode', ["ZZ"]);
 
         $this
-            ->shouldThrow('Address\Exception\CountryNotFoundException')
+            ->shouldThrow('Address\Exception\InvalidCountryException')
             ->during('buildFromName', ["ZZzzzzzz"]);
     }
 }

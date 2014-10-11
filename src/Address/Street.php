@@ -64,6 +64,9 @@ final class Street
         return sprintf("%s%s %s", $this->number, $separator, $this->name);
     }
 
+    /**
+     * @return array
+     */
     public function getValueAsArray()
     {
         return [
