@@ -1,0 +1,29 @@
+{
+    "name": "black/address",
+    "type": "library",
+    "description": "PHP 5.4+ library to make working with Address safer, easier, and fun",
+    "keywords": ["libary", "Black"],
+    "homepage": "http://www.lablackroom.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexandre Balmes",
+            "email": "alexandre@lablackroom.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Geo\\": "src/Address/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

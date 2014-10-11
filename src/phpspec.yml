@@ -1,0 +1,4 @@
+suites:
+    address_suite:
+        namespace: Address
+        spec_path: ./src/
