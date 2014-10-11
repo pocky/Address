@@ -7,8 +7,8 @@ use Address\Postal;
 /**
  * Class PostalFormatter
  *
- * @author Alexandre Balmes <${COPYRIGHT_NAME}>
- * @license ${COPYRIGHT_LICENCE}
+ * @author Alexandre Balmes <alexandre@lablackroom.com>
+ * @license http://opensource.org/licenses/mit-license.php MIT
  */
 class PostalFormatter implements FormatterInterface
 {

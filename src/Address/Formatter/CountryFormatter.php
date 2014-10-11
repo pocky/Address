@@ -4,6 +4,12 @@ namespace Address\Formatter;
 
 use Address\Country;
 
+/**
+ * Class CountryFormatter
+ *
+ * @author Alexandre Balmes <alexandre@lablackroom.com>
+ * @license http://opensource.org/licenses/mit-license.php MIT
+ */
 class CountryFormatter implements FormatterInterface
 {
     const COUNTRY_CODE = '%c';

@@ -4,6 +4,12 @@ namespace Address\Formatter;
 
 use Address\Street;
 
+/**
+ * Class StreetFormatter
+ *
+ * @author Alexandre Balmes <alexandre@lablackroom.com>
+ * @license http://opensource.org/licenses/mit-license.php MIT
+ */
 class StreetFormatter implements FormatterInterface
 {
     const STREET_NAME = '%n';
