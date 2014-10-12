@@ -38,7 +38,7 @@ $country = new Address\Country("France", "FR");
 echo $country->getName(); // return (string) France
 ```
 
-It is possible to create a Country object with two static methods. 
+It is possible to create a Country object with two static functions. 
 
 ```php
 $country = Address\Country::buildFromISOCode("FR");
@@ -48,7 +48,7 @@ $country = Address\Country::buildFromISOCode("FR");
 $country = Address\Country::buildFromName("France");
 ```
 
-__Available methods__
+__Available functions__
 
 - `::buildFromISOCode($code)`
 - `::buildFromName($name)`
@@ -73,7 +73,7 @@ __Exemple__
 $street = new Address\Street(1600, "Amphitheatre Pkwy");
 $street->getValue(','); // return (string) 1600, Amphitheatre Pkwy
 ```
-__Available methods__
+__Available functions__
 
 - `->getNumber()`
 - `->getName()`
@@ -99,7 +99,7 @@ $postal = new Address\Postal(
 );
 ```
 
-__Available methods__
+__Available functions__
 
 - `->getStreet()`
 - `->getStreetName()`
@@ -114,13 +114,51 @@ __Available methods__
 - `->getValue()` Return an array
 
 
-#### Formatter
-Ok now, you have a complete Postal Address but somewhere in your brain, you say : 
+#### Formatters
+
+Ok now, you have a complete Postal Address but somewhere in your brain, you say: 
 
 `Oh fuck, sometimes I don't have any region or post office box and addresses are not writed in France or US with the same order and...`
 
-Don't panic, there is a formatter for that!.
+Don't panic, there is a formatter for that!
 
+Three formatters are available with the same `->format()` function:
+
+- Address\Formatter\CountryFormatter
+- Address\Formatter\StreetFormatter
+- Address\Formatter\PostalFormatter
+
+Here is the mapping:
+
+- Street: %S
+- Street name: %n
+- Street number: %u
+- Postal code: %P
+- Locality: %L
+- Region: %R
+- Post Office Box Number: %B
+- Country: %C
+- Country code: %C
+- Country name: %a
+
+And how to use it:
+
+```php
+
+$street = new Address\Street(1600, "Amphitheatre Pkwy");
+$country = new Address\Country("United States", "US");
+$postal = new Address\Postal(
+    $street,
+    94043,
+    "Mountain View",
+    "CA",
+    23,
+    $country
+);
+
+$formatter = new Address\PostalFormatter($postal);
+echo $formatter->format("%u %n %P %a"); // return 1600 Amphitheatre Pkwy 94043 United States
+```
 
 License
 -------
