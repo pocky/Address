@@ -3,15 +3,15 @@
 namespace spec\Address\Formatter;
 
 use Address\Country;
-use Address\Postal;
+use Address\PostalAddress;
 use Address\Street;
 use PhpSpec\ObjectBehavior;
 
-class PostalFormatterSpec extends ObjectBehavior
+class PostalAddressFormatterSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Address\Formatter\PostalFormatter');
+        $this->shouldHaveType('Address\Formatter\PostalAddressFormatter');
         $this->shouldImplement('Address\Formatter\FormatterInterface');
     }
 
@@ -19,7 +19,7 @@ class PostalFormatterSpec extends ObjectBehavior
     {
         $street = new Street(1600, "Amphitheatre Pkwy");
         $country = new Country("United States", "US");
-        $postal = new Postal(
+        $postalAddress = new PostalAddress(
             $street,
             94043,
             "Mountain View",
@@ -28,7 +28,7 @@ class PostalFormatterSpec extends ObjectBehavior
             $country
         );
 
-        $this->beConstructedWith($postal);
+        $this->beConstructedWith($postalAddress);
     }
 
     public function it_should_format()

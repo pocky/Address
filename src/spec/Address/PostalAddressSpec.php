@@ -6,11 +6,11 @@ use Address\Country;
 use Address\Street;
 use PhpSpec\ObjectBehavior;
 
-class PostalSpec extends ObjectBehavior
+class PostalAddressSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Address\Postal');
+        $this->shouldHaveType('Address\PostalAddress');
     }
 
     public function let()

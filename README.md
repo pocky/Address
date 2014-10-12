@@ -85,15 +85,15 @@ __Available functions__
 - `->getValueAsArray()`
 - `->isEqualTo($street)`
 
-#### Postal
+#### PostalAddress
 
-Postal is the main Value Object. He needs all the informations but an empty string is allowed.
+PostalAddress is the main Value Object. He needs all the informations but an empty string is allowed.
 
 ```php
 $street  = new Address\Street(1600, "Amphitheatre Pkwy");
 $country = new Address\Country("United States", "US");
 
-$postal = new Address\Postal(
+$postalAddress = new Address\PostalAddress(
     $street,
     94043,
     "Mountain View",
@@ -130,7 +130,7 @@ Three formatters are available with the same `->format()` function:
 
 - Address\Formatter\CountryFormatter
 - Address\Formatter\StreetFormatter
-- Address\Formatter\PostalFormatter
+- Address\Formatter\PostalAddressFormatter
 
 Here is the mapping:
 
@@ -151,7 +151,7 @@ And how to use it:
 
 $street = new Address\Street(1600, "Amphitheatre Pkwy");
 $country = new Address\Country("United States", "US");
-$postal = new Address\Postal(
+$postalAddress = new Address\PostalAddress(
     $street,
     94043,
     "Mountain View",
@@ -160,7 +160,7 @@ $postal = new Address\Postal(
     $country
 );
 
-$formatter = new Address\PostalFormatter($postal);
+$formatter = new Address\PostalAddressFormatter($postalAddress);
 echo $formatter->format("%u %n %P %a"); // return 1600 Amphitheatre Pkwy 94043 United States
 ```
 
