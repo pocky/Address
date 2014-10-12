@@ -3,6 +3,10 @@ Address
 
 PHP 5.4+ library to make working with Addresses safer, easier, and fun!
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/9c417a0b-667b-4824-9588-71dbc233729a/big.png)](https://insight.sensiolabs.com/projects/9c417a0b-667b-4824-9588-71dbc233729a)
+[![Build Status](https://travis-ci.org/black-project/Address.svg?branch=master)](https://travis-ci.org/black-project/Address)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/black-project/Address/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/black-project/Address/?branch=master)
+
 Installation
 ------------
 

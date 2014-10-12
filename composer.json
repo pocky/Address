@@ -25,5 +25,9 @@
     },
     "config": {
         "bin-dir": "bin"
+    },
+    "suggest": {
+        "black/geo": "~1.0",
+        "willdurand/geocoder": "~2.8"
     }
 }
