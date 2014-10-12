@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the Address package.
  *
@@ -8,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Address;
 
 use Address\Exception\InvalidCountryException;
@@ -42,15 +40,15 @@ final class Country
      */
     public function __construct($name, $code)
     {
-        if (!isset(static::$countries)) {
-            static::$countries = require __DIR__ . '/../Resources/countries.php';
+        if (!isset(self::$countries)) {
+            self::$countries = require __DIR__ . '/../Resources/countries.php';
         }
 
-        if (!array_key_exists($code, static::$countries)) {
+        if (!array_key_exists($code, self::$countries)) {
             throw new InvalidCountryException(sprintf("Code %s is not a valid code", $code));
         }
 
-        if ($name !== static::$countries[$code]) {
+        if ($name !== self::$countries[$code]) {
             throw new InvalidCountryException(sprintf("Country %s does not exist or not match with %s code", $name, $code));
         }
 
@@ -64,15 +62,15 @@ final class Country
      */
     public static function buildFromISOCode($code)
     {
-        if (!isset(static::$countries)) {
-            static::$countries = require __DIR__ . '/../Resources/countries.php';
+        if (!isset(self::$countries)) {
+            self::$countries = require __DIR__ . '/../Resources/countries.php';
         }
 
-        if (!array_key_exists($code, static::$countries)) {
+        if (!array_key_exists($code, self::$countries)) {
             throw new InvalidCountryException(sprintf("Code %s is not a valid code", $code));
         }
 
-        return new self(static::$countries[$code], $code);
+        return new self(self::$countries[$code], $code);
     }
 
     /**
@@ -81,11 +79,11 @@ final class Country
      */
     public static function buildFromName($name)
     {
-        if (!isset(static::$countries)) {
-            static::$countries = require __DIR__ . '/../Resources/countries.php';
+        if (!isset(self::$countries)) {
+            self::$countries = require __DIR__ . '/../Resources/countries.php';
         }
 
-        $countries = array_flip(static::$countries);
+        $countries = array_flip(self::$countries);
 
         if (!array_key_exists($name, $countries)) {
             throw new InvalidCountryException(sprintf("Name %s is not a valid name", $name));
@@ -93,7 +91,7 @@ final class Country
 
         $code = $countries[$name];
 
-        return new self(static::$countries[$code], $code);
+        return new self(self::$countries[$code], $code);
     }
 
     /**
