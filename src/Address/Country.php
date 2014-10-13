@@ -22,12 +22,12 @@ final class Country
     /**
      * @var string The country. For example, United States of America.
      */
-    protected $name;
+    private $name;
 
     /**
      * @var string The ISO 3166-1 alpha-2 country code.
      */
-    protected $code;
+    private $code;
 
     /**
      * @var

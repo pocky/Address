@@ -20,12 +20,12 @@ final class Street
     /**
      * @var int The number of the street.
      */
-    protected $number;
+    private $number;
 
     /**
      * @var string The street name
      */
-    protected $name;
+    private $name;
 
     /**
      * @param $number

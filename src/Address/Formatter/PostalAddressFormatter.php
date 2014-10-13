@@ -17,7 +17,7 @@ use Address\PostalAddress;
  * @author Alexandre Balmes <alexandre@lablackroom.com>
  * @license http://opensource.org/licenses/mit-license.php MIT
  */
-class PostalAddressFormatter implements FormatterInterface
+final class PostalAddressFormatter implements FormatterInterface
 {
     const STREET = '%S';
 
@@ -42,7 +42,7 @@ class PostalAddressFormatter implements FormatterInterface
     /**
      * @var PostalAddress
      */
-    protected $postalAddress;
+    private $postalAddress;
 
     /**
      * @param PostalAddress $postalAddress

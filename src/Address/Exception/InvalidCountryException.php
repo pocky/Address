@@ -15,7 +15,7 @@ namespace Address\Exception;
  * @author Alexandre Balmes <alexandre@lablackroom.com>
  * @license http://opensource.org/licenses/mit-license.php MIT
  */
-class InvalidCountryException extends \InvalidArgumentException
+final class InvalidCountryException extends \InvalidArgumentException
 {
 
 }

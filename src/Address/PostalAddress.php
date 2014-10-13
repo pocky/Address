@@ -20,32 +20,32 @@ final class PostalAddress
     /**
      * @var Street The complete street name
      */
-    protected $street;
+    private $street;
 
     /**
      * @var int The postal code
      */
-    protected $postalCode;
+    private $postalCode;
 
     /**
      * @var string The locality
      */
-    protected $locality;
+    private $locality;
 
     /**
      * @var string The region
      */
-    protected $region;
+    private $region;
 
     /**
      * @var int The post office box number
      */
-    protected $postOfficeBoxNumber;
+    private $postOfficeBoxNumber;
 
     /**
      * @var Country The complete country name
      */
-    protected $country;
+    private $country;
 
     /**
      * @param Street  $street

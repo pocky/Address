@@ -17,7 +17,7 @@ use Address\Street;
  * @author Alexandre Balmes <alexandre@lablackroom.com>
  * @license http://opensource.org/licenses/mit-license.php MIT
  */
-class StreetFormatter implements FormatterInterface
+final class StreetFormatter implements FormatterInterface
 {
     const STREET_NAME = '%n';
 
@@ -26,7 +26,7 @@ class StreetFormatter implements FormatterInterface
     /**
      * @var Street
      */
-    protected $street;
+    private $street;
 
     /**
      * @param Street $street
